@@ -18,6 +18,38 @@ class StudentTest {
     }
 
     @Test
+    @DisplayName("Contructor")
+    void testConstructor(){
+        s = new Student("67xxxxxxx1", "Test1");
+        assertEquals("67xxxxxxx1", s.getId());
+        assertEquals(0.0, s.getScore());
+
+        s = new Student("67xxxxxxx2", "Test2", 50.0);
+        assertEquals("67xxxxxxx2", s.getId());
+        assertEquals(50.0, s.getScore());
+    }
+
+    @Test
+    @DisplayName("เปลี่ยนชื่อ")
+    void testChangeName(){
+        s.changeName("John");
+        assertEquals("John", s.getName());
+
+        s.changeName("  George   ");
+        assertEquals("George", s.getName());
+    }
+
+    @Test
+    @DisplayName("เช็คตัวอักษรในชื่อ")
+    void testNameContains(){
+        assertEquals(true, s.isNameContains("T"));
+        assertEquals(false, s.isNameContains("a"));
+        assertEquals(false, s.isNameContains(" "));
+        s.changeName("  John Eastwood  ");
+        assertEquals(true, s.isNameContains(" "));
+    }
+
+    @Test
     @DisplayName("เพิ่มคะแนนนิสิต")
     void testAddScore(){
         s.addScore(60);
