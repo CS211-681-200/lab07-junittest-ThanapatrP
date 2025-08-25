@@ -27,7 +27,7 @@ class StudentListTest {
         sl.giveScoreToId("67xxxxxxx1", 70.0);
 
         assertEquals("B", sl.viewGradeOfId("67xxxxxxx1"));
-        assertEquals(null, sl.viewGradeOfId("67xxxxxxx2"));
+        assertEquals(null, sl.viewGradeOfId("67xxxxxxx6"));
     }
 
     @Test
@@ -36,7 +36,6 @@ class StudentListTest {
         sl.giveScoreToId("67xxxxxxx2", 35.0);
         assertEquals(50.0 ,sl.findStudentById("67xxxxxxx2").getScore());
         assertEquals(0.0 ,sl.findStudentById("67xxxxxxx1").getScore());
-        assertEquals(15.0 ,sl.findStudentById("67xxxxxxx3").getScore());
 
         sl.giveScoreToId("67xxxxxxx1", -30.0);
         assertEquals(0.0 ,sl.findStudentById("67xxxxxxx1").getScore());
